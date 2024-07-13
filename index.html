@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <div class="content">
+            <header class="d-flex flex-column flex-md-row justify-content-between align-items-center p-3">
+                <h5 class="foodie">foodie</h5>
+                <button class="btn btn-danger mb-2 mb-md-0">Join the Waitlist</button>
+            </header>
+            <div class="main-content">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6 d-flex justify-content-center align-items-center mb-3 mb-md-0 phone-container">
+                        <div class="smartphone">
+                            <div class="smartphone-frame">
+                                <video autoplay loop preload="auto">
+                                    <source src="1111421-hd_1920_1080_30fps.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 text-center text-md-left">
+                        <h5 class="foodie">foodie</h5>
+                        <h1>Welcome to Foodie</h1>
+                        <p class="para" style="color: white;">
+                            At foodie, we redefine convenience with our seamless food delivery service.
+                            Whether you're craving the flavors of home or exploring new culinary delights,
+                            foodie brings it all to your doorstep. From hearty breakfasts to gourmet dinners
+                            and everything in between, our curated menu caters to every palate and preference.
+                        </p>
+                        <button class="btn btn-outline-light submit">Join the Waitlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-section text-center">
+        <h2 style="color: orange;">Join the Waitlist</h2>
+        <form class="d-flex justify-content-center flex-wrap" onsubmit="handleSubmit(event)">
+            <input type="text" placeholder="Name" class="form-control m-2" id="name">
+            <input type="tel" placeholder="Phone Number" class="form-control m-2" id="phone">
+            <input type="text" placeholder="City" class="form-control m-2" id="city">
+            <button type="submit" class="btn btn-primary m-2 formbtn">Join the Waitlist</button>
+        </form>
+        <div id="thank-you" style="display: none;">
+            <h2>Thank You!</h2>
+            <p>Your details have been submitted.</p>
+            <button class="btn btn-secondary" onclick="resetForm()">Submit Another Response</button>
+        </div>
+    </div>
+    <div class="waitlist-count">
+        <h2>Waitlist Count: <span id="waitlist-count">0</span></h2>
+    </div>
+
+    <script>
+        let waitlistCount = 0;
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            document.querySelector('form').style.display = 'none';
+            document.getElementById('thank-you').style.display = 'block';
+            waitlistCount++;
+            document.getElementById('waitlist-count').textContent = waitlistCount;
+        }
+
+        function resetForm() {
+            document.querySelector('form').reset();
+            document.querySelector('form').style.display = 'flex';
+            document.getElementById('thank-you').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
